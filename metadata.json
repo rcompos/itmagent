@@ -1,0 +1,17 @@
+{
+  "name": "usdafs-itmagent",
+  "version": "0.1.0",
+  "author": "usdafs",
+  "summary": "USDA Forest Service RHEL IBM Tivoli Monitoring Agent",
+  "license": "Apache 2.0",
+  "source": "https://github.com/rcompos/usdafs-itmagent.git",
+  "project_page": "https://github.com/rcompos/usdafs-itmagent",
+  "issues_url": "https://github.com/rcompos/usdafs-itmagent/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_range": ">= 1.0.0"
+    }
+  ]
+}
+
