@@ -15,7 +15,7 @@
 
 ## Overview
 
-USDA Forest Service IBM Tivoli Monitoring 6.3.0 Agent.
+USDA Forest Service IBM Tivoli Monitoring Agent.
 
 ## Module Description
 
