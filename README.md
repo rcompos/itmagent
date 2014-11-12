@@ -15,7 +15,9 @@
 
 ## Overview
 
-USDA Forest Service IBM Tivoli Monitoring Agent.
+A one-maybe-two sentence summary of what the module does/what problem it solves.
+This is your 30 second elevator pitch for your module. Consider including
+OS/Puppet version it works with.
 
 ## Module Description
 
@@ -51,7 +53,8 @@ for upgrading, you may wish to include an additional section here: Upgrading
 
 ## Usage
 
-In Puppet console, assign node the following key value pair: role : itmagent 
+Put the classes, types, and resources for customizing, configuring, and doing
+the fancy stuff with your module here.
 
 ## Reference
 
