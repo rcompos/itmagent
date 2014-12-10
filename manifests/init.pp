@@ -35,7 +35,24 @@
 #
 # Copyright 2014 Your name here, unless otherwise noted.
 #
-class itmagent {
+class itmagent (
 
+   $itm_server = $itmagent::params::itm_server,
+   $itm_file   = $itmagent::params::itm_file,
+   $dir_dest   = $itmagent::params::dir_dest,
+   $url_src    = $itmagent::params::url_src,
+
+) inherits itmagent::params {
+
+   validate_string($itm_server)
+   validate_string($itm_file)
+   validate_string($dir_dest)
+   validate_string($url_src)
+
+   anchor { 'itmagent::begin': }     ->
+   class  { '::itmagent::install': } ->
+   #class  { '::itmagent::config': }  ~>
+   #class  { '::itmagent::service': } ->
+   anchor { 'itmagent::end': }
 
 }
