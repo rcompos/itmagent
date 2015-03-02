@@ -15,21 +15,15 @@
 
 ## Overview
 
-Puppet module for IBM Tivoli Monitoring (ITM) 6.3.0 Agent 
-
-A one-maybe-two sentence summary of what the module does/what problem it solves.
-This is your 30 second elevator pitch for your module. Consider including
-OS/Puppet version it works with.
+Puppet module to install IBM Tivoli Monitoring (ITM) 6.3.0 Agent on RHEL6.
+Extracted ITM 6.3.0 Agent install directory expected on network share. 
 
 ## Module Description
 
-If applicable, this section should have a brief description of the technology
-the module integrates with and what that integration enables. This section
-should answer the questions: "What does this module *do*?" and "Why would I use
-it?"
+The ITM630 agent Puppet module installs pre-requisite packages with yum,
+then executes the agent install script on the network filesystem.
 
-If your module has a range of functionality (installation, configuration,
-management, etc.) this is the time to mention it.
+The ITM server FQDN or IP may be specified with the variable itmserver.
 
 ## Setup
 
