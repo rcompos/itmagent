@@ -12,6 +12,5 @@ class itmagent::params {
   $script_dir           = 'itm630lnxagt'
   $silent_inst_file     = 'lz_silent_install.LinuxOsAgt.txt'
   $dir_dest             = '/tmp'
-  #$url_src              = "http://missy.blacklab.lan/~rcompos/${itm_file}"
   
 }
