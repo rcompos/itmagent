@@ -47,8 +47,8 @@ class itmagent (
    validate_string($dir_tmp)
    validate_string($src_dir)
 
-   notify{"IBM Tivoli Monitoring Agent $itm_version":}
-   notify{"ITM directory: $itm_dir":}
+   #notify{"IBM Tivoli Monitoring Agent $itm_version":}
+   #notify{"ITM directory: $itm_dir":}
 
    anchor { 'itmagent::begin': }     ->
    class  { '::itmagent::install': } ->
