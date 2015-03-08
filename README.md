@@ -3,7 +3,7 @@
 #### Table of Contents
 
 1. [Overview](#overview)
-2. [Module Description - What the module does and why it is useful](#module-description)
+2. [Description - What the module does and why it is useful](#module-description)
 3. [Setup - The basics of getting started with itmagent](#setup)
     * [What itmagent affects](#what-itmagent-affects)
     * [Setup requirements](#setup-requirements)
@@ -16,14 +16,14 @@
 ## Overview
 
 Puppet module to install IBM Tivoli Monitoring (ITM) 6.3.0 Agent on RHEL6.
-Extracted ITM 6.3.0 Agent install directory expected on network share. 
+Extracted ITM 6.3.0 Agent install directory expected on network or local
+filesystem. 
 
-## Module Description
+## Description
 
-The ITM630 agent Puppet module installs pre-requisite packages with yum,
-then executes the agent install script on the network filesystem.
-
-The ITM server FQDN or IP may be specified with the variable itmserver.
+The itmagent Puppet module installs IBM Tivoli Monitoring (ITM) 6.3.0 Agent on
+RHEL 5 and 6 and CentOS 5 and 6. The IBM Tivoli Enterprise Monitoring Server 
+(TEMS) hostname or IP address must be specified as a parameter in Puppet console.
 
 ## Setup
 
@@ -51,6 +51,15 @@ for upgrading, you may wish to include an additional section here: Upgrading
 
 Put the classes, types, and resources for customizing, configuring, and doing
 the fancy stuff with your module here.
+
+The following paramaters should be defined in Puppet console before assigning
+this class to any nodes.
+
+itm_server	Hostname or IP address of TEMS.
+nfs_host        Hostname or IP address of NFS server.    
+nfs_dir         Location of NFS directory.
+nfs_options	Default '-t nfs'
+
 
 ## Reference
 

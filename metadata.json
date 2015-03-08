@@ -13,5 +13,48 @@
       "version_range": ">= 1.0.0"
     }
   ]
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+      ]
+    },
+    #{
+    #  "operatingsystem": "OracleLinux",
+    #  "operatingsystemrelease": [
+    #    "6",
+    #  ]
+    #},
+    #{
+    #  "operatingsystem": "Scientific",
+    #  "operatingsystemrelease": [
+    #    "5",
+    #    "6",
+    #  ]
+    #},
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "6",
+      ]
+    },
+    #{
+    #  "operatingsystem": "Ubuntu",
+    #  "operatingsystemrelease": [
+    #    "10.04",
+    #    "12.04",
+    #    "14.04"
+    #  ]
+    #}
+  ],
 }
 
