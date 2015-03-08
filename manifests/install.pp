@@ -3,22 +3,10 @@ class itmagent::install inherits itmagent {
       fail("Unsupported osfamily ${::osfamily}")
    }
    #notify{"IBM Tivoli Monitoring Agent $itm_version":}
-   exec { "cp -a $src_dir/$script_file .":
+   exec { "yum -y install nfs-utils.x86_64":
       cwd     => "$dir_tmp",
-      path => "/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin",
-      unless  => "$itm_home/bin/cinfo -t lz",
-      logoutput => "true",
-   }
-   exec { "tar xzf $script_file":
-      cwd     => "$dir_tmp",
-      path => "/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin",
-      unless  => "$itm_home/bin/cinfo -t lz",
-      logoutput => "true",
-   }
-   exec { "prereq_inst.sh":
-      cwd     => "$dir_tmp/$script_dir",
       path => "/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin:$dir_tmp/$script_dir",
-      unless  => "which ksh",
+      unless  => "which rpcbind",
       logoutput => "true",
    }
    exec { "service rpcbind start":
@@ -33,16 +21,34 @@ class itmagent::install inherits itmagent {
       unless  => "ls $mnt_dir",
       logoutput => "true",
    }
-   exec { "mount $mnt_fs_options ${mnt_fs_host}:${mnt_fs_dir} $mnt_dir":
+   exec { "mount $nfs_options ${nfs_host}:${nfs_dir} $mnt_dir":
       cwd     => "$dir_tmp",
       path => "/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin:$dir_tmp/$script_dir",
-      unless  => "grep ${mnt_fs_dir} /etc/mtab",
+      unless  => "grep ${nfs_dir} /etc/mtab",
+      logoutput => "true",
+   }
+   exec { "cp -a $src_dir/$script_file .":
+      cwd     => "$dir_tmp",
+      path => "/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin",
+      unless  => "ls $itm_home/bin/cinfo",
+      logoutput => "true",
+   }
+   exec { "tar xzf $script_file":
+      cwd     => "$dir_tmp",
+      path => "/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin",
+      unless  => "ls $itm_home/bin/cinfo",
+      logoutput => "true",
+   }
+   exec { "prereq_inst.sh":
+      cwd     => "$dir_tmp/$script_dir",
+      path => "/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin:$dir_tmp/$script_dir",
+      unless  => "which ksh",
       logoutput => "true",
    }
    exec { "itm630agent_rhel.sh $itm_server $src_dir/$itm_dir":
       cwd     => "$dir_tmp/$script_dir",
       path => "/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin:$dir_tmp/$script_dir",
-      unless  => "$itm_home/bin/cinfo -t lz",
+      unless  => "ls $itm_home/bin/cinfo",
       logoutput => "true",
    }
 }
