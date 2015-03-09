@@ -35,11 +35,11 @@ RHEL 5 and 6 and CentOS 5 and 6. The IBM Tivoli Enterprise Monitoring Server
 * Can be in list or paragraph form.
 
 The following pre-requisite packages will be installed.
-* ksh.x86_64             # The Original ATT Korn Shell
-* libstdc++.x86_64       # GNU Standard C++ Library
-* libstdc++.i686         # GNU Standard C++ Library
-* libgcc.i686            # GCC version 4.8 shared support library
-* nfs-utils.x86_64       # NFS utilities and supporting clients and daemons for the kernel NFS server
+* ksh.x86_64             ( The Original ATT Korn Shell )
+* libstdc++.x86_64       ( GNU Standard C++ Library )
+* libstdc++.i686         ( GNU Standard C++ Library )
+* libgcc.i686            ( GCC version 4.8 shared support library )
+* nfs-utils.x86_64       ( NFS utilities and supporting clients and daemons for the kernel NFS server )
 
 ### Setup Requirements **OPTIONAL**
 
