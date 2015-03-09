@@ -34,10 +34,23 @@ RHEL 5 and 6 and CentOS 5 and 6. The IBM Tivoli Enterprise Monitoring Server
 * This is a great place to stick any warnings.
 * Can be in list or paragraph form.
 
+The following pre-requisite packages will be installed.
+  ksh.x86_64             The Original ATT Korn Shell
+  libstdc++.x86_64       GNU Standard C++ Library
+  libstdc++.i686         GNU Standard C++ Library
+  libgcc.i686            GCC version 4.8 shared support library
+  nfs-utils.x86_64       NFS utilities and supporting clients and daemons for the kernel NFS server
+
 ### Setup Requirements **OPTIONAL**
 
 If your module requires anything extra before setting up (pluginsync enabled,
 etc.), mention it here.
+
+The module attempts to execute the install.sh script located on a remote
+NFS filesystem.  The NFS hostname or IP address and filesystem parameters 
+must be specified initially.  The module mounts the NFS filesystem and
+unmounts it when done.
+
 
 ### Beginning with itmagent
 
