@@ -25,6 +25,10 @@ The itmagent Puppet module installs IBM Tivoli Monitoring (ITM) 6.3.0 Agent on
 RHEL 5 and 6 and CentOS 5 and 6. The IBM Tivoli Enterprise Monitoring Server 
 (TEMS) hostname or IP address must be specified as a parameter in Puppet console.
 
+The agent service ITMAgents1 will be configured to start automatically.  The 
+agent service process runs as klzagent.
+
+
 ## Setup
 
 ### What itmagent affects
@@ -80,6 +84,19 @@ Here, list the classes, types, providers, facts, etc contained in your module.
 This section should include all of the under-the-hood workings of your module so
 people know what the module is touching on their system but don't need to mess
 with things. (We are working on automating this section!)
+
+Example ITM agent service status command.
+Syntax: /etc/init.d/ITMAgents1 start|stop|restart|start_msg|stop_msg
+
+ITM Port Usage - Agents
+In a default configuration, agents use the following sockets,
+1) Connection to a TEMS port 1918. The communications string defines the protocols used. The CT_CMSLIST environment variable names the servers where a TEMS is running. The initial connection at port 1918 gives access to the Location Broker data and thus indirectly to the TEMS. However from the standpoint of configuration, this is a socket to a 1918 listening port on the server running the TEMS.
+2) Agent listening port at 1918+N*4096. If there is just one agent installed, the listening port will be 1918+4096 or 6014. If there are more than one agent installed, the agents contend for the listening ports. That means incidentally that there are a maximum of 15 agents using the default configuration. The listening port is used for several purposes including retrieval of real time data and receiving broadcasts about new WPA address.
+3) Agent connection to Warehouse Proxy Agent or WPA. This can be at any port but recently was defaulted to 63358 or 1918+15*4096. The information is actually found from the Location Broker. The WPA registers at the hub TEMS, the Global Location Broker information is propagated to the Local Location Broker at the remote TEMS and the agent looks it up as part of the Location Broker data.
+4) Internal Web Server ports. By default all Agents and most ITM processes start an internal web server. The default ports used are 1920 and 3661 [http and https]. There are several purposes including the ability to start and stop diagnostic tracing dynamically. The first ITM process owns the 1920/3661 and the others register with it. If that process stops the 1920 ownership switches to another ITM process if possible.
+6) Ephemeral ports. ITM makes use of ports which are received from TCP/IP as "the next free port". These are used to communicate between ITM sub-systems.
+7) Local ports. These are on address 0.0.0.0 and 127.0.0.1 which are not internet capable addresses. They are used to maintain awareness between ITM processes such as handling the internal web server switch process.
+Almost every single number you see in the above description is configurable except for 4096 and local ports. So if you must make a change you can always make that change. The rest of the technote shows how to limit or control port usage.
 
 ## Limitations
 
