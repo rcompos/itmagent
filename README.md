@@ -10,8 +10,8 @@
     * [Beginning with itmagent](#beginning-with-itmagent)
 4. [Usage - Configuration options and additional functionality](#usage)
 5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
-5. [Limitations - OS compatibility, etc.](#limitations)
-6. [Development - Guide for contributing to the module](#development)
+6. [Limitations - OS compatibility, etc.](#limitations)
+7. [Development - Guide for contributing to the module](#development)
 
 ## Overview
 
@@ -19,7 +19,7 @@ Puppet module to install IBM Tivoli Monitoring (ITM) 6.3.0 Agent on RHEL6.
 The ITM agent provides monitoring data to the Tivoli Enterprise Monitoring Server
 (TEMS).
 
-## Description
+## Module-Description
 
 The itmagent Puppet module installs IBM Tivoli Monitoring (ITM) 6.3.0 Agent on
 RHEL 5 and 6 and CentOS 5 and 6. The IBM Tivoli Enterprise Monitoring Server 
@@ -52,7 +52,7 @@ class paramater in the PE console.  The module mounts the NFS filesystem and
 unmounts it when done.
 
 ### Beginning with itmagent
-On the ITM agent node, to find the currently configured  TEM server:
+On the ITM agent node, to find the currently configured  TEM server:<br>
 \# cinfo -s lz | grep " HOSTNAME ="
 
 ## Usage
@@ -70,10 +70,10 @@ this class to any nodes.
 
 ## Reference
 
-Classes
-::itmagent
-::itmagent::params
-::itmagent::install
+Classes<br>
+::itmagent<br>
+::itmagent::params<br>
+::itmagent::install<br>
 
 Example ITM agent service status command.
 Syntax: /etc/init.d/ITMAgents1 start|stop|restart|start_msg|stop_msg
