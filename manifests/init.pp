@@ -1,40 +1,4 @@
 # == Class: itmagent
-#
-# Full description of class itmagent here.
-#
-# === Parameters
-#
-# Document parameters here.
-#
-# [*sample_parameter*]
-#   Explanation of what this parameter affects and what it defaults to.
-#   e.g. "Specify one or more upstream ntp servers as an array."
-#
-# === Variables
-#
-# Here you should define a list of variables that this module would require.
-#
-# [*sample_variable*]
-#   Explanation of how this variable affects the funtion of this class and if
-#   it has a default. e.g. "The parameter enc_ntp_servers must be set by the
-#   External Node Classifier as a comma separated list of hostnames." (Note,
-#   global variables should be avoided in favor of class parameters as
-#   of Puppet 2.6.)
-#
-# === Examples
-#
-#  class { itmagent:
-#    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
-#  }
-#
-# === Authors
-#
-# Author Name <author@domain.com>
-#
-# === Copyright
-#
-# Copyright 2014 Your name here, unless otherwise noted.
-#
 class itmagent (
 
   $itm_server          = $itmagent::params::itm_server,
@@ -43,7 +7,12 @@ class itmagent (
   $mnt_dir             = $itmagent::params::mnt_dir,
   $nfs_host            = $itmagent::params::nfs_host,
   $nfs_dir             = $itmagent::params::nfs_dir,
+  $nfs_package         = $itmagent::params::nfs_package,
   $nfs_options         = $itmagent::params::nfs_options,
+  $ksh_package         = $itmagent::params::ksh_package,
+  $stdcpp_64_package   = $itmagent::params::stdcpp_64_package,
+  $stdcpp_32_package   = $itmagent::params::stdcpp_32_package,
+  $gcc_32_package      = $itmagent::params::gcc_32_package,
 
 ) inherits itmagent::params {
 
@@ -53,7 +22,12 @@ class itmagent (
    validate_string($mnt_dir)
    validate_string($nfs_host)
    validate_string($nfs_dir)
+   validate_string($nfs_package)
    validate_string($nfs_options)
+   validate_string($ksh_package)
+   validate_string($stdcpp_64_package)
+   validate_string($stdcpp_32_package)
+   validate_string($gcc_32_package)
 
    #notify{"IBM Tivoli Monitoring Agent $itm_version":}
    #notify{"ITM directory: $itm_dir":}

@@ -43,17 +43,22 @@ The following pre-requisite packages will be installed.
 * libgcc.i686            : GCC version 4.8 shared support library
 * nfs-utils.x86_64       : NFS utilities and supporting clients and daemons for the kernel NFS server
 
+Firewall<br>
+Mount network filesystem<br>
+
+
 ### Setup Requirements **OPTIONAL**
 
 The module attempts to install ITM agent by executing the install.sh script 
 located on a remote NFS filesystem.  
-The NFS hostname or IP address and filesystem parameters must be specified as 
-class paramater in the PE console.  The module mounts the NFS filesystem and
-unmounts it when done.
+The NFS hostname or IP address and filesystem location must be specified as 
+class paramaters in the PE console.
+If selected, the NFS filesystem is mounted and then unmounted when done.
+
 
 ### Beginning with itmagent
-On the ITM agent node, to find the currently configured  TEM server:<br>
-\# cinfo -s lz | grep " HOSTNAME ="
+On the ITM agent node, to find the currently configured TEM server:<br>
+\# /opt/IBM/ITM/bin/cinfo -s lz | grep " HOSTNAME ="
 
 ## Usage
 
