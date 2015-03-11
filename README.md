@@ -16,8 +16,8 @@
 ## Overview
 
 Puppet module to install IBM Tivoli Monitoring (ITM) 6.3.0 Agent on RHEL6.
-Extracted ITM 6.3.0 Agent install directory expected on network or local
-filesystem. 
+The ITM agent provides monitoring data to the Tivoli Enterprise Monitoring Server
+(TEMS).
 
 ## Description
 
@@ -25,9 +25,11 @@ The itmagent Puppet module installs IBM Tivoli Monitoring (ITM) 6.3.0 Agent on
 RHEL 5 and 6 and CentOS 5 and 6. The IBM Tivoli Enterprise Monitoring Server 
 (TEMS) hostname or IP address must be specified as a parameter in Puppet console.
 
+The extracted ITM 6.3.0 Agent install directory expected on network or local
+filesystem. 
+
 The agent service ITMAgents1 will be configured to start automatically.  The 
 agent service process runs as klzagent.
-
 
 ## Setup
 
