@@ -5,6 +5,7 @@ class itmagent::params {
   #$itm_server_force     = undef
 
   # module params
+  $dir_tmp              = '/tmp'
   $itm_version          = '6.3.0'
   $itm_home             = '/opt/IBM/ITM'
   $itm_file             = 'ITM_V6.3.0_AGENTS_MP_ENGLISH.tar'
@@ -18,10 +19,9 @@ class itmagent::params {
   $nfs_options          = '-t nfs'
   $script_file          = 'itm630lnxagt.tgz'
   $script_dir           = regsubst($script_file, '\.tgz$', '')
-  $dir_tmp              = '/tmp'
-  $nfs_package          = 'nfs-utils.x86_64'
+  $nfs_package          = 'nfs-utils'
   $nfs_ensure           = 'present'
-  $ksh_package          = 'ksh.x86_64'
+  $ksh_package          = 'ksh'
   $ksh_ensure           = 'present'
   $stdcpp_64_package    = 'libstdc++.x86_64'
   $stdcpp_64_ensure     = 'present'
