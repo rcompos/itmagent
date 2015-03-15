@@ -52,6 +52,8 @@ located on a remote NFS filesystem.
 The NFS hostname or IP address and filesystem location must be specified as 
 class paramaters in the PE console.
 If selected, the NFS filesystem is mounted and then unmounted when done.
+The $itm_server variable in params.pp should be set to the default TEM server
+hostname.
 
 ### Beginning with itmagent
 On the ITM agent node, to find the currently configured TEM server:<br>
