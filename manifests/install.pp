@@ -37,10 +37,10 @@ class itmagent::install (
       unless    => "ls $itm_home/bin/cinfo",
       logoutput => "true",
    }
-   exec { "mount $nfs_options ${nfs_host}:${nfs_dir} $mnt_dir":
+   exec { "mount $nfs_options ${nfs_host}:$nfs_dir $mnt_dir":
       cwd       => "$dir_tmp",
       path      => "/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin:",
-      unless    => "grep ${nfs_dir} /etc/mtab",
+      unless    => "grep $nfs_dir /etc/mtab",
       creates   => "$itm_home/bin/cinfo",
       logoutput => "true",
    }
@@ -65,11 +65,11 @@ class itmagent::install (
       creates   => "$itm_home/bin/cinfo",
       logoutput => "true",
    }
-   exec { "umount ${nfs_host}:${nfs_dir}":
+   exec { "umount ${nfs_host}:$nfs_dir":
       cwd       => "$dir_tmp",
       path      => "/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin:",
-      onlyif    => "grep ${nfs_dir} /etc/mtab",
-      unless    => "ls $itm_home/bin/cinfo",
+      onlyif    => "grep $nfs_dir /etc/mtab",
+      unless    => "grep $nfs_dir /etc/fstab",
       logoutput => "true",
    }
 }
