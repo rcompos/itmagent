@@ -43,9 +43,7 @@ The following pre-requisite packages will be installed.
 * libgcc.i686            : GCC version 4.8 shared support library
 * nfs-utils.x86_64       : NFS utilities and supporting clients and daemons for the kernel NFS server
 
-Firewall<br>
-Mount network filesystem<br>
-
+The firewall may require adjustment on the node.  See ITM Port Usage below.<br>
 
 ### Setup Requirements **OPTIONAL**
 
@@ -54,7 +52,6 @@ located on a remote NFS filesystem.
 The NFS hostname or IP address and filesystem location must be specified as 
 class paramaters in the PE console.
 If selected, the NFS filesystem is mounted and then unmounted when done.
-
 
 ### Beginning with itmagent
 On the ITM agent node, to find the currently configured TEM server:<br>
@@ -70,7 +67,7 @@ this class to any nodes.
 
 * itm_server	  Hostname or IP address of TEMS.
 * nfs_host        Hostname or IP address of NFS server.    
-* nfs_dir         Location of NFS directory.
+* nfs_dir         Location of NFS directory where ITM tarfile resides.
 * nfs_options	  Default '-t nfs'
 
 ## Reference
@@ -89,8 +86,8 @@ In a default configuration, agents use the following sockets,<br>
 2. Agent listening port at 1918+N\*4096. If there is just one agent installed, the listening port will be 1918+4096 or 6014. If there are more than one agent installed, the agents contend for the listening ports. That means incidentally that there are a maximum of 15 agents using the default configuration. The listening port is used for several purposes including retrieval of real time data and receiving broadcasts about new WPA address.<br>
 3. Agent connection to Warehouse Proxy Agent or WPA. This can be at any port but recently was defaulted to 63358 or 1918+15\*4096. The information is actually found from the Location Broker. The WPA registers at the hub TEMS, the Global Location Broker information is propagated to the Local Location Broker at the remote TEMS and the agent looks it up as part of the Location Broker data.<br>
 4. Internal Web Server ports. By default all Agents and most ITM processes start an internal web server. The default ports used are 1920 and 3661 [http and https]. There are several purposes including the ability to start and stop diagnostic tracing dynamically. The first ITM process owns the 1920/3661 and the others register with it. If that process stops the 1920 ownership switches to another ITM process if possible.<br>
-6. Ephemeral ports. ITM makes use of ports which are received from TCP/IP as "the next free port". These are used to communicate between ITM sub-systems.<br>
-7. Local ports. These are on address 0.0.0.0 and 127.0.0.1 which are not internet capable addresses. They are used to maintain awareness between ITM processes such as handling the internal web server switch process.<br>
+5. Ephemeral ports. ITM makes use of ports which are received from TCP/IP as "the next free port". These are used to communicate between ITM sub-systems.<br>
+6. Local ports. These are on address 0.0.0.0 and 127.0.0.1 which are not internet capable addresses. They are used to maintain awareness between ITM processes such as handling the internal web server switch process.<br>
 Almost every single number you see in the above description is configurable except for 4096 and local ports. So if you must make a change you can always make that change. The rest of the technote shows how to limit or control port usage.
 
 ## Limitations
