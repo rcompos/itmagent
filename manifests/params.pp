@@ -24,9 +24,9 @@ class itmagent::params {
   $ksh_package          = 'ksh'
   $ksh_ensure           = 'present'
   $stdcpp_64_package    = 'libstdc++.x86_64'
-  $stdcpp_64_ensure     = 'present'
+  $stdcpp_64_ensure     = 'latest'
   $stdcpp_32_package    = 'libstdc++.i686'
-  $stdcpp_32_ensure     = 'present'
+  $stdcpp_32_ensure     = 'latest'
   $gcc_32_package       = 'libgcc.i686'
   $gcc_32_ensure        = 'present'
   
