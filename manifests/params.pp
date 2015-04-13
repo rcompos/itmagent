@@ -2,7 +2,6 @@ class itmagent::params {
 
   # itm agent params
   $itm_server           = 'fsxopsx9999.wrk.fs.usda.gov'
-  #$itm_server_force     = undef
 
   # module params
   $dir_tmp              = '/tmp'
@@ -14,7 +13,7 @@ class itmagent::params {
   $mnt_dir              = '/mnt/srv'
   # src_dir 		: directory where itm_file resides
   $src_dir              = "itm630agent_inst"
-  $nfs_host             = '10.20.1.8'
+  $nfs_host             = undef
   $nfs_dir              = '/var/centos70s0'
   $nfs_options          = '-t nfs'
   $script_file          = 'itm630lnxagt.tgz'
