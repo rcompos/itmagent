@@ -7,6 +7,8 @@ class itmagent (
   $mnt_dir             = $itmagent::params::mnt_dir,
   $nfs_host            = $itmagent::params::nfs_host,
   $nfs_dir             = $itmagent::params::nfs_dir,
+  $nfs_options         = $itmagent::params::nfs_options,
+  $dir_tmp             = $itmagent::params::dir_tmp,
 
 ) inherits itmagent::params {
 
@@ -16,6 +18,8 @@ class itmagent (
    validate_string($mnt_dir)
    validate_string($nfs_host)
    validate_string($nfs_dir)
+   validate_string($nfs_options)
+   validate_string($dir_tmp)
 
    anchor { 'itmagent::begin': }     ->
    class  { '::itmagent::install': } ->
