@@ -1,8 +1,17 @@
 class itmagent::install (
-)inherits itmagent {
-   if $::osfamily != 'RedHat' {
-      fail("Unsupported osfamily ${::osfamily}")
+) inherits itmagent {
+
+   case $::osfamily {
+     'RedHat': {
+        if $::operatingsystemmajrelease >= 7 {
+          fail("Class['itmagent::install']: Unsupported operating system majrelease ${::operatingsystemmajrelease}")
+        }
+      }
+      default: {
+         fail("Class['itmagent::install']: Unsupported osfamily: ${::osfamily}")
+       }
    }
+
    package { '$ksh_package':
       ensure => $ksh_ensure,
       name   => $ksh_package,
@@ -40,4 +49,5 @@ class itmagent::install (
       creates   => "$itm_home/bin/cinfo",
       logoutput => "true",
    }
+
 }
