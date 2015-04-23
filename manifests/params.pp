@@ -14,8 +14,6 @@ class itmagent::params {
   $script_dir           = regsubst($script_file, '\.tgz$', '')
 
   # prereqs
-  $nfs_package          = 'nfs-utils'
-  $nfs_ensure           = 'present'
   $ksh_package          = 'ksh'
   $ksh_ensure           = 'present'
   $stdcpp_64_package    = 'libstdc++.x86_64'
