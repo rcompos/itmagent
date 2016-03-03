@@ -1,11 +1,11 @@
 class itmagent::params {
 
   # itm agent params
-  $itm_server           = 'fsxopsx9999.wrk.fs.usda.gov'
+  $itm_server           = 'fsxopsx0199.fdc.fs.usda.gov'
 
   # module params
   # src_dir             : path to install files
-  $src_dir              = "/tmp/itm630agent"
+  $src_dir              = '/fslink/sysinfra/tivoli/itm630agent'
   $dir_tmp              = '/tmp'
   $itm_home             = '/opt/IBM/ITM'
   $itm_file             = 'ITM_V6.3.0_AGENTS_MP_ENGLISH.tar'
