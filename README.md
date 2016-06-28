@@ -15,7 +15,7 @@
 
 ## Overview
 
-Puppet module to install IBM Tivoli Monitoring (ITM) 6.3.0 Agent on RHEL6.
+Puppet module to install IBM Tivoli Monitoring (ITM) 6.3.0 Fix Pack 6 Agent on RHEL6.
 The ITM agent provides monitoring data to the Tivoli Enterprise Monitoring Server
 (TEMS).
 

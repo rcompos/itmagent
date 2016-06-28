@@ -2,9 +2,9 @@ class itmagent::install (
 ) inherits itmagent {
    case $::osfamily {
      'RedHat': {
-        if $::operatingsystemmajrelease > 7 {
+        if $::operatingsystemmajrelease + 0 > 7 {
           notice("Class['itmagent::install']: Unsupported operating system majrelease ${::operatingsystemmajrelease}")
-        } elsif $::operatingsystemmajrelease <= 7 {
+        } elsif $::operatingsystemmajrelease + 0 <= 7 {
           # notice ??
           package { '$ksh_package':
              ensure => $ksh_ensure,
