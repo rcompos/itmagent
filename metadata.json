@@ -1,0 +1,33 @@
+{
+
+  "name": "roncompos-itmagent",
+  "version": "1.0.15",
+  "author": "rcompos",
+  "summary": "IBM Tivoli Monitoring Agent",
+  "license": "Apache-2.0",
+  "source": "https://github.com/rcompos/itmagent.git",
+  "project_page": "https://github.com/rcompos/itmagent",
+  "issues_url": "https://github.com/rcompos/itmagent/issues",
+  "dependencies": [
+  {
+    "name": "puppetlabs-stdlib",
+    "version_range": ">= 1.0.0"
+  }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    }
+  ]
+}
