@@ -1,7 +1,7 @@
 {
 
   "name": "roncompos-itmagent",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "author": "rcompos",
   "summary": "IBM Tivoli Monitoring Agent",
   "license": "Apache-2.0",
